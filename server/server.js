@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const request = require('request');
+const rp = require('request-promise');
 
 let chirpArray = [
     {
@@ -35,13 +36,13 @@ let chirpArray = [
     }
 ];
 
-require('fs').appendFileSync(
+fs.writeFile(
     './chirpArray.json',
-    JSON.stringify(chirpArray + '/n'),
+    JSON.stringify(chirpArray),
     
     function (err) {
         if (err) {
             console.log(err)
-        }
+        } 
     }
 );
